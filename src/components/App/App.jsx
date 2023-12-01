@@ -19,22 +19,22 @@ function App() {
     <div className='App'>
       <Header />
       <Router>
-        <Route path="/feeling">
+        <Route exact path="/">
           <Feeling />
         </Route>
-        <Route path="/understanding">
+        <Route exact path="/understanding">
           <Understanding />
         </Route>
-        <Route path="/support">
+        <Route exact path="/support">
           <Support />
         </Route>
-        <Route path="/comments">
+        <Route exact path="/comments">
           <Comments />
         </Route>
-        <Route path="/review">
+        <Route exact path="/review">
           <Review />
         </Route>
-        <Route path="/submission">
+        <Route exact path="/submission">
           <Submission />
         </Route>
         <Route path="/admin">

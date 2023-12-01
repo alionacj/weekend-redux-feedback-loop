@@ -1,3 +1,5 @@
+import { HashRouter as Router, Link } from "react-router-dom"
+
 function Understanding () {
 
     return (
@@ -13,7 +15,11 @@ function Understanding () {
                     <option value="5">5</option>
                 </select>
             </label>
-            <button>NEXT</button>
+            <Router>
+                <Link to="/support">
+                    <button>NEXT</button>
+                </Link>
+            </Router>
         </div>
     )
 }

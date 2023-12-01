@@ -1,3 +1,5 @@
+import { HashRouter as Router, Link } from "react-router-dom"
+
 function Feeling () {
 
     return (
@@ -13,7 +15,11 @@ function Feeling () {
                     <option value="5">5</option>
                 </select>
             </label>
-            <button>NEXT</button>
+            <Router>     
+                <Link to="/understanding">
+                    <button>NEXT</button>
+                </Link>
+            </Router>
         </div>
     )
 }

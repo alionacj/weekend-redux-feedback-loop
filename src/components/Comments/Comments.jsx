@@ -1,3 +1,5 @@
+import { HashRouter as Router, Link } from "react-router-dom"
+
 function Comments () {
 
     return (
@@ -10,7 +12,11 @@ function Comments () {
                 >
                 </input>
             </label>
-            <button>NEXT</button>
+            <Router>
+                <Link to="/review">
+                    <button>NEXT</button>
+                </Link>
+            </Router>
         </div>
     )
 }
