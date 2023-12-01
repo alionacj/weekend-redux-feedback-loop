@@ -17,6 +17,13 @@ const feedback = (state = {
             return {...state, support: payload}
         case 'COMMENT':
             return {...state, comments: payload}
+        case 'CLEAR_FEEDBACK':
+            return {
+                feelings: 1,
+                understanding: 1,
+                support: 1,
+                comments: ''
+                }
         default:
             return state
     }
