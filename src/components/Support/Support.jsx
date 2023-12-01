@@ -25,7 +25,9 @@ function Support () {
             <h1>How well are you being supported?</h1>
             <label>
                 Support?
-                <select onChange={handleChange}>
+                <select
+                    data-testid="input"
+                    onChange={handleChange}>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -35,7 +37,12 @@ function Support () {
             </label>
             <Router>
                 <Link to="/comments">
-                    <button onClick={submitSupportScore}>NEXT</button>
+                    <button 
+                        data-testid="next"
+                        onClick={submitSupportScore}
+                    >
+                        NEXT
+                    </button>
                 </Link>
             </Router>
         </div>

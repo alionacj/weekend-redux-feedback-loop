@@ -25,7 +25,9 @@ function Feeling () {
             <h1>How are you feeling today?</h1>
             <label>
                 Feeling?
-                    <select onChange={handleChange}>
+                <select
+                    data-testid="input"
+                    onChange={handleChange}>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -35,7 +37,11 @@ function Feeling () {
             </label>
             <Router>     
                 <Link to="/understanding">
-                    <button onClick={submitFeelingScore}>NEXT</button>
+                    <button
+                        data-testid="next"
+                        onClick={submitFeelingScore}>
+                        NEXT
+                    </button>
                 </Link>
             </Router>
         </div>

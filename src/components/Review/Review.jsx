@@ -29,7 +29,11 @@ function Review () {
             <p>Comments: {feedback.comments}</p>
             <Router>
                 <Link to='/submission'>
-                    <button onClick={saveSubmission}>SUBMIT</button>
+                    <button 
+                        data-testid="next"
+                        onClick={saveSubmission}>
+                        SUBMIT
+                    </button>
                 </Link>
             </Router>
         </div>

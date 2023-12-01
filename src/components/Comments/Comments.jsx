@@ -27,13 +27,18 @@ function Comments () {
             <label onChange={handleChange}>
                 Comments
                 <input
+                    data-testid="input"
                     placeholder="Type comments here"
                 >
                 </input>
             </label>
             <Router>
                 <Link to="/review">
-                    <button onClick={submitComments}>NEXT</button>
+                    <button 
+                        data-testid="next"
+                        onClick={submitComments}>
+                        NEXT
+                    </button>
                 </Link>
             </Router>
         </div>

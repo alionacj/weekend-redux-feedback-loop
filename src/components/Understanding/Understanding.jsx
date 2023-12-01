@@ -25,7 +25,9 @@ function Understanding () {
             <h1>How well are you understanding the content?</h1>
             <label>
                 Understanding?
-                <select onChange={handleChange}>
+                <select 
+                    data-testid="input"
+                    onChange={handleChange}>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -35,7 +37,11 @@ function Understanding () {
             </label>
             <Router>
                 <Link to="/support">
-                    <button onClick={submitUnderstandingScore}>NEXT</button>
+                    <button 
+                        data-testid="next"
+                        onClick={submitUnderstandingScore}>
+                        NEXT
+                    </button>
                 </Link>
             </Router>
         </div>
