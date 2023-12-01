@@ -4,19 +4,19 @@ import { useState } from "react"
 
 function Comments () {
 
-    const [comment, setComment] = useState(0)
+    const [comments, setComments] = useState(0)
 
     const handleChange = (e) => {
         let commentInput = e.target.value
-        setComment(commentInput)
+        setComments(commentInput)
     }
 
     const dispatch = useDispatch()
 
-    const submitComment = () => {
+    const submitComments = () => {
         dispatch({
             type: 'COMMENT',
-            payload: comment
+            payload: comments
         })
     }
 
@@ -33,7 +33,7 @@ function Comments () {
             </label>
             <Router>
                 <Link to="/review">
-                    <button onClick={submitComment}>NEXT</button>
+                    <button onClick={submitComments}>NEXT</button>
                 </Link>
             </Router>
         </div>
