@@ -1,4 +1,4 @@
-import { HashRouter as Router, Link } from "react-router-dom"
+import { useHistory } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { useState } from "react"
 
@@ -12,12 +12,14 @@ function Understanding () {
     }
 
     const dispatch = useDispatch()
+    const nextPage = useHistory()
 
-    const submitUnderstandingScore = () => {
+    const handleClick = () => {
         dispatch({
             type: 'UNDERSTANDING_SCORE',
             payload: understandingScore
         })
+        nextPage.push("/support")
     }
 
     return (
@@ -35,15 +37,11 @@ function Understanding () {
                     <option value="5">5</option>
                 </select>
             </label>
-            <Router>
-                <Link to="/support">
-                    <button 
-                        data-testid="next"
-                        onClick={submitUnderstandingScore}>
-                        NEXT
-                    </button>
-                </Link>
-            </Router>
+            <button 
+                data-testid="next"
+                onClick={handleClick}>
+                NEXT
+            </button>
         </div>
     )
 }

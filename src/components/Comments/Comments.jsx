@@ -1,4 +1,4 @@
-import { HashRouter as Router, Link } from "react-router-dom"
+import { useHistory } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { useState } from "react"
 
@@ -12,12 +12,14 @@ function Comments () {
     }
 
     const dispatch = useDispatch()
+    const nextPage = useHistory()
 
-    const submitComments = () => {
+    const handleClick = () => {
         dispatch({
             type: 'COMMENT',
             payload: comments
         })
+        nextPage.push("/review")
     }
 
 
@@ -32,15 +34,11 @@ function Comments () {
                 >
                 </input>
             </label>
-            <Router>
-                <Link to="/review">
-                    <button 
-                        data-testid="next"
-                        onClick={submitComments}>
-                        NEXT
-                    </button>
-                </Link>
-            </Router>
+            <button 
+                data-testid="next"
+                onClick={handleClick}>
+                NEXT
+            </button>
         </div>
     )
 }

@@ -1,23 +1,25 @@
-import { HashRouter as Router, Link } from "react-router-dom"
+import { useHistory } from "react-router-dom"
 import { useSelector } from "react-redux"
 import axios from "axios"
 
 function Review () {
 
     const feedback = useSelector(store => store.feedback)
+    const nextPage = useHistory()
 
-    const saveSubmission = () => {
+    const handleClick = () => {
         axios({
             method: 'POST',
             url: '/feedback',
             data: feedback
         })
         .then((response) => {
-            console.log('it worked')
+            nextPage.push("/submission")
         })
         .catch((error) => {
             console.error(error)
         })
+
     }
 
     return (
@@ -27,15 +29,11 @@ function Review () {
             <p>Understanding: {feedback.understanding}</p>
             <p>Support: {feedback.support}</p>
             <p>Comments: {feedback.comments}</p>
-            <Router>
-                <Link to='/submission'>
-                    <button 
-                        data-testid="next"
-                        onClick={saveSubmission}>
-                        SUBMIT
-                    </button>
-                </Link>
-            </Router>
+            <button 
+                data-testid="next"
+                onClick={handleClick}>
+                SUBMIT
+            </button>
         </div>
     )
 }

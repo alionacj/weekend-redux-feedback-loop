@@ -1,4 +1,4 @@
-import { HashRouter as Router, Link } from "react-router-dom"
+import { useHistory } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { useState } from "react"
 
@@ -12,13 +12,16 @@ function Feeling () {
     }
 
     const dispatch = useDispatch()
-
-    const submitFeelingScore = () => {
+    const nextPage = useHistory()
+    
+    const handleClick = () => {
         dispatch({
             type: 'FEELING_SCORE',
             payload: feelingScore
         })
+        nextPage.push("/understanding")
     }
+
 
     return (
         <div>
@@ -34,16 +37,12 @@ function Feeling () {
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </select>
-            </label>
-            <Router>     
-                <Link to="/understanding">
-                    <button
-                        data-testid="next"
-                        onClick={submitFeelingScore}>
-                        NEXT
-                    </button>
-                </Link>
-            </Router>
+            </label>   
+            <button
+                data-testid="next"
+                onClick={handleClick}>
+                NEXT
+            </button>
         </div>
     )
 }
