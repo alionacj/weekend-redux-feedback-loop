@@ -16,7 +16,11 @@ function Submission () {
     return (
         <div>
             <p>Thank you!</p>
-            <button onClick={handleClick}>HOME</button>
+            <button
+                data-testid="next"
+                onClick={handleClick}>
+            HOME
+            </button>
         </div>
     )
 }

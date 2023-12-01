@@ -4,7 +4,7 @@ import { useState } from "react"
 
 function Feeling () {
 
-    const [feelingScore, setFeelingScore] = useState(0)
+    const [feelingScore, setFeelingScore] = useState('')
 
     const handleChange = (e) => {
         let selectedScore = e.target.value
@@ -17,26 +17,23 @@ function Feeling () {
     const handleClick = () => {
         dispatch({
             type: 'FEELING_SCORE',
-            payload: feelingScore
+            payload: Number(feelingScore)
         })
         nextPage.push("/understanding")
     }
-
 
     return (
         <div>
             <h1>How are you feeling today?</h1>
             <label>
                 Feeling?
-                <select
+                <input
                     data-testid="input"
+                    type="number"
+                    placeholder="Rate 1-5"
+                    value={feelingScore}
                     onChange={handleChange}>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
+                </input>
             </label>   
             <button
                 data-testid="next"

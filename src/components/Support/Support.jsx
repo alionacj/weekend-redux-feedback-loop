@@ -17,7 +17,7 @@ function Support () {
     const handleClick = () => {
         dispatch({
             type: 'SUPPORT_SCORE',
-            payload: supportScore
+            payload: Number(supportScore)
         })
         nextPage.push("/comments")
     }
@@ -27,15 +27,13 @@ function Support () {
             <h1>How well are you being supported?</h1>
             <label>
                 Support?
-                <select
+                <input
                     data-testid="input"
+                    type="number"
+                    placeholder="Rate 1-5"
+                    value={supportScore}
                     onChange={handleChange}>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
+                </input>
             </label>
             <button 
                 data-testid="next"

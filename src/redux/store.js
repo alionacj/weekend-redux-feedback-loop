@@ -2,9 +2,9 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { logger } from 'redux-logger';
 
 const feedback = (state = {
-    feelings: 1,
-    understanding: 1,
-    support: 1,
+    feelings: 0,
+    understanding: 0,
+    support: 0,
     comments: ''
     }, action) => {
     const payload = action.payload

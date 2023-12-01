@@ -4,7 +4,7 @@ import { useState } from "react"
 
 function Understanding () {
 
-    const [understandingScore, setUnderstandingScore] = useState(0)
+    const [understandingScore, setUnderstandingScore] = useState('')
 
     const handleChange = (e) => {
         let selectedScore = e.target.value
@@ -17,7 +17,7 @@ function Understanding () {
     const handleClick = () => {
         dispatch({
             type: 'UNDERSTANDING_SCORE',
-            payload: understandingScore
+            payload: Number(understandingScore)
         })
         nextPage.push("/support")
     }
@@ -27,15 +27,13 @@ function Understanding () {
             <h1>How well are you understanding the content?</h1>
             <label>
                 Understanding?
-                <select 
+                <input
                     data-testid="input"
+                    type="number"
+                    placeholder="Rate 1-5"
+                    value={understandingScore}
                     onChange={handleChange}>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
+                </input>
             </label>
             <button 
                 data-testid="next"
