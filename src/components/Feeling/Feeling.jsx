@@ -5,15 +5,14 @@ import { useState } from "react"
 function Feeling () {
 
     const [feelingScore, setFeelingScore] = useState('')
+    const dispatch = useDispatch()
+    const nextPage = useHistory()
 
     const handleChange = (e) => {
         let selectedScore = e.target.value
         setFeelingScore(selectedScore)
     }
 
-    const dispatch = useDispatch()
-    const nextPage = useHistory()
-    
     const handleClick = () => {
         dispatch({
             type: 'FEELING_SCORE',

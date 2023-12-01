@@ -5,14 +5,13 @@ import { useState } from "react"
 function Comments () {
 
     const [comments, setComments] = useState(0)
+    const dispatch = useDispatch()
+    const nextPage = useHistory()
 
     const handleChange = (e) => {
         let commentInput = e.target.value
         setComments(commentInput)
     }
-
-    const dispatch = useDispatch()
-    const nextPage = useHistory()
 
     const handleClick = () => {
         dispatch({

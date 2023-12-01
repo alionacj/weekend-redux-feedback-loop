@@ -5,14 +5,13 @@ import { useState } from "react"
 function Understanding () {
 
     const [understandingScore, setUnderstandingScore] = useState('')
+    const dispatch = useDispatch()
+    const nextPage = useHistory()
 
     const handleChange = (e) => {
         let selectedScore = e.target.value
         setUnderstandingScore(selectedScore)
     }
-
-    const dispatch = useDispatch()
-    const nextPage = useHistory()
 
     const handleClick = () => {
         dispatch({

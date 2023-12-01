@@ -5,14 +5,13 @@ import { useState } from "react"
 function Support () {
 
     const [supportScore, setSupportScore] = useState(0)
+    const dispatch = useDispatch()
+    const nextPage = useHistory()
 
     const handleChange = (e) => {
         let selectedScore = e.target.value
         setSupportScore(selectedScore)
     }
-
-    const dispatch = useDispatch()
-    const nextPage = useHistory()
 
     const handleClick = () => {
         dispatch({
