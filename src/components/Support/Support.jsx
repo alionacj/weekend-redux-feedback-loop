@@ -39,8 +39,7 @@ function Support () {
                 <Link to="/comments">
                     <button 
                         data-testid="next"
-                        onClick={submitSupportScore}
-                    >
+                        onClick={submitSupportScore}>
                         NEXT
                     </button>
                 </Link>
